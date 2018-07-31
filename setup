@@ -2,7 +2,11 @@
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 
+# Link dotfiles
 ln -s $DIR/.bashrc ~/.bashrc
 ln -s $DIR/.bash_profile ~/.bash_profile
 ln -s $DIR/.vimrc ~/.vimrc
 ln -s $DIR/.tmux.conf ~/.tmux.conf
+
+# Install vundle
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
