@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-ln -s .bashrc ~/.bashrc
-ln -s .bash_profile ~/.bash_profile
-ln -s .vimrc ~/.vimrc
-ln -s .tmux.conf ~/.tmux.conf
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+
+ln -s $DIR/.bashrc ~/.bashrc
+ln -s $DIR/.bash_profile ~/.bash_profile
+ln -s $DIR/.vimrc ~/.vimrc
+ln -s $DIR/.tmux.conf ~/.tmux.conf
