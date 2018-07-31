@@ -10,3 +10,7 @@ ln -s $DIR/.tmux.conf ~/.tmux.conf
 
 # Install vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+# Reminders
+echo "Remember to install ripgrep: https://github.com/BurntSushi/ripgrep#installation"
+echo "Remember to install taskwarrior: https://taskwarrior.org/download/"
