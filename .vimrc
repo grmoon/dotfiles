@@ -60,9 +60,9 @@ let g:syntastic_check_on_w = 1
 let g:syntastic_javascript_checkers = ['jshint']
 "let g:syntastic_javascript_eslint_exe = 'jshint'
 
-" Red bar at 80 characters
+" Red bar at 120 characters
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
+match OverLength /\%121v.\+/
 
 " Open NerdTree using ctrl-n
 map <C-n> :NERDTreeToggle<CR>
