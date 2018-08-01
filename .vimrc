@@ -58,7 +58,8 @@ let NERDTreeIgnore = ['\.pyc$']
 " lint on write
 let g:syntastic_check_on_w = 1
 let g:syntastic_javascript_checkers = ['jshint']
-"let g:syntastic_javascript_eslint_exe = 'jshint'
+
+let g:syntastic_python_flake8_args='--ignore=E116,E226,E128 --max-line-length=120'
 
 " Red bar at 120 characters
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
@@ -70,5 +71,10 @@ map <C-p> :Files<CR>
 
 " Close vim if NERDTree is the only window left open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Strip trailing whitespace on save
+" http://vim.wikia.com/wiki/Remove_unwanted_spaces
+autocmd BufWritePre * %s/\s\+$//e
+
 
 command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
