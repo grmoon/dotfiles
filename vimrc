@@ -1,8 +1,8 @@
 set nocompatible
 set backspace=indent,eol,start
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set expandtab
 set smartindent
 set hlsearch
@@ -48,7 +48,7 @@ autocmd BufNewFile,BufRead *.vue set ft=vue
 autocmd BufNewFile,BufRead .babelrc set ft=json
 
 " linting
-let g:syntastic_always_populate_loc_list = 1 
+let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
@@ -58,8 +58,11 @@ let NERDTreeIgnore = ['\.pyc$']
 " lint on write
 let g:syntastic_check_on_w = 1
 let g:syntastic_javascript_checkers = ['jshint']
-
 let g:syntastic_python_flake8_args='--ignore=E116,E226,E128 --max-line-length=120'
+
+" Syntastic disabled by default
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes':[],'passive_filetypes': [] }
+nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 
 " Red bar at 120 characters
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
@@ -70,7 +73,7 @@ map <C-n> :NERDTreeToggle<CR>
 map <C-p> :Files<CR>
 
 " Close vim if NERDTree is the only window left open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Strip trailing whitespace on save
 " http://vim.wikia.com/wiki/Remove_unwanted_spaces

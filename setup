@@ -3,10 +3,20 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 
 # Link dotfiles
-ln -s $DIR/.bashrc ~/.bashrc
-ln -s $DIR/.bash_profile ~/.bash_profile
-ln -s $DIR/.vimrc ~/.vimrc
-ln -s $DIR/.tmux.conf ~/.tmux.conf
+rm ~/.bashrc	
+ln -s $DIR/bashrc ~/.bashrc
+
+rm ~/.git-completion.bash
+ln -s $DIR/git-completion.bash ~/.git-completion.bash
+
+rm ~/.bash_profile
+ln -s $DIR/bash_profile ~/.bash_profile
+
+rm ~/.vimrc
+ln -s $DIR/vimrc ~/.vimrc
+
+rm ~/.tmux.conf
+ln -s $DIR/tmux.conf ~/.tmux.conf
 
 # Install vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
