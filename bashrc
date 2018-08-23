@@ -14,8 +14,10 @@ set -o vi
 # Aliases
 alias sbp="source ~/.bash_profile && echo 'Sourced ~/.bash_profile'"
 alias vbp="vim ~/.bash_profile"
-alias rmpyc="find . -name "*.pyc" -exec rm -f {} \;"
-alias rmpycache="find . -name "__pyache__" -exec rm -rf {} \;"
+alias rmpyc="find . -name *.pyc -exec rm -f {} \;"
+alias rmpycache="find . -name __pyache__ -exec rm -rf {} \;"
+alias rmpy="rmpyc && rmpycache"
+alias rmnm="find . -type d -name node_modules -exec rm -rf {} \;"
 
 # Load nvm
 export NVM_DIR="$HOME/.nvm"
@@ -34,5 +36,11 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
+if [ $(hostname) == "artivest-mbp-20.local" ]; then
+  export PGPORT=5433
+fi
+
 task
 
+# added by travis gem
+[ -f /Users/greg.moon/.travis/travis.sh ] && source /Users/greg.moon/.travis/travis.sh
